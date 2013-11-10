@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Arduino::Application.config.secret_key_base = 'e647db454c99747c80285788528c7b8aee95b265d5a0976b0b70a4fa38ab058b9dc1be52deeaebd8718aa326510f914f0ed647d77b516cd31421c12a9da9ab38'
+Arduino::Application.config.secret_key_base = 'ab8efcbe1fbdaee5eb722007c1651c8b07b19e0b48cdd1991631c02df8be3445f999abf87a65bec8653c3c28c485127c26f569e7dc504a081c3515683c0c91b7'
