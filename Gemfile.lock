@@ -18,6 +18,7 @@ GIT
       tzinfo (~> 0.3.37)
 
 GEM
+  remote: http://mirror1.prod.rhcloud.com/mirror/ruby/
   remote: https://rubygems.org/
   specs:
     actionmailer (4.0.1)
