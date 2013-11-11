@@ -1,4 +1,3 @@
-source 'http://mirror1.prod.rhcloud.com/mirror/ruby/'
 source 'https://rubygems.org'
 gem 'rails', '4.0.1'
 gem 'sass-rails', '~> 4.0.0'
