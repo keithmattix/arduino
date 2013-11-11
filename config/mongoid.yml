@@ -74,3 +74,11 @@ test:
         # low amounts for fast failures.
         max_retries: 1
         retry_interval: 0
+production:
+  sessions:
+    default:
+      database: <%= ENV['OPENSHIFT_APP_NAME'] %>
+      hosts:
+        - <%= ENV['OPENSHIFT_MONGODB_DB_HOST'] || 'localhost' %>:<%= ENV['OPENSHIFT_MONGODB_DB_PORT'] || 27017 %>
+      username: <%= ENV['OPENSHIFT_MONGODB_DB_USERNAME'] %> 
+      password: <%= ENV['OPENSHIFT_MONGODB_DB_PASSWORD'] %>
