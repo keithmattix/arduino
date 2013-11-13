@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
 gem 'zurb-foundation'
+gem 'mongoid_rails_migrations'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]

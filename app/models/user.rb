@@ -46,4 +46,5 @@ class User
   index({ email: 1 }, { unique: true, background: true })
   field :name, :type => String
   validates_presence_of :name
+  embeds_many :projects
 end

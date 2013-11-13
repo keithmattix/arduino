@@ -1,0 +1,8 @@
+#new-project-modal.reveal-modal
+	%h3.header
+		New Project
+	=simple_form_for @new_project do |f|
+		=f.input :name
+		=f.input :x_name
+		=f.input :y_name
+		=f.input :description, :as => :text	

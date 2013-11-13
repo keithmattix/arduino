@@ -1,0 +1,11 @@
+.project-list
+	%h3#projects-header.header
+		Projects
+	=render @all_projects
+	-if @all_projects.empty?
+		%span#empty-message
+			There are no projects! Click below to create a project
+		%button.new-project{"data-reveal-id" => "new-project-modal"}
+			New Project
+
+=render "shared/new_project_modal"

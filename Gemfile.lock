@@ -133,6 +133,11 @@ GEM
     mime-types (1.25)
     mini_portile (0.5.2)
     minitest (4.7.5)
+    mongoid_rails_migrations (1.0.1)
+      activesupport (>= 3.2.0)
+      bundler (>= 1.0.0)
+      rails (>= 3.2.0)
+      railties (>= 3.2.0)
     moped (2.0.0.beta3)
       bson (~> 2.0.0.rc3)
       optionable (~> 0.1.1)
@@ -248,6 +253,7 @@ DEPENDENCIES
   jquery-rails
   mongoid (~> 4)!
   mongoid-rspec (>= 1.6.0)!
+  mongoid_rails_migrations
   quiet_assets
   rails (= 4.0.1)
   rails_layout
