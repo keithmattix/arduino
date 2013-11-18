@@ -55,7 +55,6 @@ GEM
       debug_inspector (>= 0.0.1)
     bson (2.0.0.rc3)
     builder (3.1.4)
-    cancan (1.6.10)
     capybara (2.1.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -241,7 +240,6 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  cancan
   capybara
   coffee-rails (~> 4.0.0)
   compass-rails (~> 2.0.alpha.0)
@@ -252,6 +250,7 @@ DEPENDENCIES
   figaro
   haml-rails
   html2haml
+  i18n
   jbuilder (~> 1.2)
   jquery-rails
   mongoid (~> 4)!
