@@ -35,3 +35,7 @@ group :test do
   gem 'email_spec'
   gem 'mongoid-rspec', '>= 1.6.0', :github=>"evansagge/mongoid-rspec"
 end
+
+group :production do
+  gem 'shelly-dependencies'
+end
