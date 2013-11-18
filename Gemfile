@@ -18,13 +18,12 @@ gem 'therubyracer', :platform=>:ruby
 gem 'thin'
 gem 'zurb-foundation'
 gem 'mongoid_rails_migrations'
-group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
-  gem 'html2haml'
-  gem 'quiet_assets'
-  gem 'rails_layout'
-end
+gem 'better_errors'
+gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
+gem 'html2haml'
+gem 'quiet_assets'
+gem 'shelly-dependencies'
+gem 'rails_layout'
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
@@ -34,8 +33,4 @@ group :test do
   gem 'database_cleaner', '1.0.1'
   gem 'email_spec'
   gem 'mongoid-rspec', '>= 1.6.0', :github=>"evansagge/mongoid-rspec"
-end
-
-group :production do
-  gem 'shelly-dependencies'
 end
