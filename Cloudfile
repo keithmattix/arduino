@@ -4,6 +4,7 @@ arduino:
   monitoring_email: clear2codeu@gmail.com
   domains:
     - arduino.shellyapp.com
+    - arduino.theventcenter.com
   servers:
     app1:
       size: large

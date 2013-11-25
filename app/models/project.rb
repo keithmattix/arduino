@@ -5,5 +5,5 @@ class Project
   field :x_name, type: String
   field :y_name, type: String
   field :data, type: Array
-  embedded_in :user
+  belongs_to :user
 end
