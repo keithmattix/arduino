@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+
   def index
   	@new_project = current_user.projects.build
   end
