@@ -22,7 +22,7 @@ gem 'better_errors'
 gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
 gem 'html2haml'
 gem 'quiet_assets'
-gem 'shelly-dependencies'
+gem 'rails_12factor'
 gem 'rails_layout'
 group :development, :test do
   gem 'factory_girl_rails'
