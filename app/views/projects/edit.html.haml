@@ -1,2 +1,9 @@
-%h1 Projects#edit
-%p Find me in app/views/projects/edit.html.haml
+= simple_form_for([current_user, @project]) do |f|
+	=f.input :name
+	=f.input :x_name, hint: "This will be the name of your graph's x axis"
+	=f.input :y_name, hint: "This will be the name of your graph's y axis"
+	=f.input :description, :as => :text	
+	- @project.data.each do |entry|
+		= f.input :data, name: "#{f.object_name}[data][]", input_html: {:value => entry}
+	=f.button :submit, class: "edit-project"
+

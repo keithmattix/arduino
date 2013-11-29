@@ -1,13 +1,16 @@
 class ProjectsController < ApplicationController
-
+  require "debugger"
   def index
-  	@new_project = current_user.projects.build
+    @user = User.find_by(slug: params[:user_id])
+    @user_projects = @user.projects
+    @new_project = current_user.projects.build
   end
 
   def show
   end
 
   def edit
+    @project = Project.find_by(slug: params[:id])
   end
 
   def create
@@ -17,6 +20,9 @@ class ProjectsController < ApplicationController
   	else
   		render 'new'
   	end
+  end
+
+  def update
   end
 
   private

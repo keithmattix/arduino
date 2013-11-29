@@ -2,7 +2,6 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  before_create :create_slug
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -50,6 +49,7 @@ class User
   field :name, :type => String
   validates_presence_of :name
   has_many :projects, dependent: :destroy
+  before_create :create_slug
 
   def to_param
     slug

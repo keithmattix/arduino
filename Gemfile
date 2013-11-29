@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'devise'
 gem 'figaro'
+gem 'debugger'
 gem 'haml-rails'
 gem 'mongoid', '~> 4', :github=>"mongoid/mongoid"
 gem 'rolify'

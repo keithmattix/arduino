@@ -5,7 +5,7 @@ class Project
   field :description, type: String
   field :x_name, type: String
   field :y_name, type: String
-  field :data, type: Array
+  field :data, type: Array, :default => []
   field :slug, type: String
   belongs_to :user
 
