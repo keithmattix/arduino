@@ -19,11 +19,6 @@
 	}
 	.project{
 		@include grid-row();
-		background-color: #808080;
-		border: 1px solid #2696b9;
 		list-style-type: none;
-		.name{
-			margin-bottom: 30px;
-		}
 	}
 }

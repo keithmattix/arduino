@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
   def create
   	@project = Project.new(project_params)
   	if @project.save
-  		redirect_to @project
+  		redirect_to user_project_path(@project.user_id, @project)
   	else
   		render 'new'
   	end
@@ -20,6 +20,6 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :x_name, :y_name, :description)
+    params.require(:project).permit(:name, :x_name, :y_name, :description, :user_id)
   end
 end

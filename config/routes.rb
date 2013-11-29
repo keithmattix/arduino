@@ -1,6 +1,9 @@
 Arduino::Application.routes.draw do
   devise_for :users
   root :to => "home#index"
-  resources :users
-  resources :projects
+  devise_scope :user do
+  	resources :users, :path => '' do
+	  	resources :projects
+  	end
+  end
 end
