@@ -1,4 +1,4 @@
 %li.project{"data-id" => project.id}
 	.name
-		%a{:href=> user_project_path(project.user.id, project)}
+		%a{:href=> user_project_path(project.user, project)}
 			=project.name
