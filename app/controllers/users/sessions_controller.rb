@@ -6,7 +6,7 @@ class Users::SessionsController < Devise::SessionsController
         yield resource if block_given?
         respond_to do |format|
         	format.html {respond_with resource, :location => after_sign_in_path_for(resource)}
-        	format.json {respond_with resource.to_json}
+        	format.json {render :json => resource.to_json}
         end
 	end
 end
