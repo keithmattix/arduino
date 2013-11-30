@@ -30,6 +30,7 @@ class ProjectsController < ApplicationController
       respond_to do |format|
         format.json {render :json => { :errors => @model.errors.full_messages }, :status => 422}
       end
+    end
   end
 
   private
