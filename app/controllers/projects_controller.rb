@@ -7,16 +7,14 @@ class ProjectsController < ApplicationController
   end
 
   def show
-  end
-
-  def edit
+    @user = User.find_by(slug: params[:user_id])
     @project = Project.find_by(slug: params[:id])
   end
 
   def create
   	@project = Project.new(project_params)
   	if @project.save
-  		redirect_to user_project_path(@project.user_id, @project)
+  		redirect_to user_project_path(@project.user, @project)
   	else
   		render 'new'
   	end
