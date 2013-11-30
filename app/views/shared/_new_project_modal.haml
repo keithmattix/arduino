@@ -2,6 +2,7 @@
 	%h3.header
 		New Project
 	=simple_form_for [current_user, @new_project] do |f|
+		-debugger
 		=f.input :name
 		=f.input :x_name, hint: "This will be the name of your graph's x axis"
 		=f.input :y_name, hint: "This will be the name of your graph's y axis"
