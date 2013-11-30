@@ -23,7 +23,9 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find_by(slug: params[:id])
     if @project.update(params[:project])
-      redirect_to @project
+      respond_to do |format|
+        format.json { render :json => @project.to_json }
+      end
     else
       respond_to do |format|
         format.json {render :json => { :errors => @model.errors.full_messages }, :status => 422}
