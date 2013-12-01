@@ -16,5 +16,5 @@ Project.show = () ->
 	    yAxis: 
 	    	title: 
 	    		text: gon.project.y_name 
-	    series: [data: $.map(gon.project.data_values, (item, index) -> item.value) ]
+	    series: if gon.project.data_values? then [data: $.map(gon.project.data_values, (item, index) -> item.value) ] else []
 	  )

@@ -23,13 +23,9 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find_by(slug: params[:id])
-    params[:project][:data] = eval(params[:project][:data])
-    puts "Params: " + params.to_s
-    puts "Project Params" + project_params.to_s
-    puts "Data: " + project_params.fetch(:data).to_s
     if @project.update(project_params)
       respond_to do |format|
-        format.json { render :json => @project.to_json }
+        format.json { render :json => @project.to_json(include: :data_values) }
       end
     else
       respond_to do |format|
@@ -40,6 +36,6 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :x_name, :y_name, :description, :user_id, :data => [])
+    params.require(:project).permit(:name, :x_name, :y_name, :description, :user_id, :data_values => {})
   end
 end
