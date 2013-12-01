@@ -1,5 +1,4 @@
 class ProjectsController < ApplicationController
-  require "debugger"
   def index
     @user = User.find_by(slug: params[:user_id])
     @user_projects = @user.projects
@@ -9,6 +8,8 @@ class ProjectsController < ApplicationController
   def show
     @user = User.find_by(slug: params[:user_id])
     @project = Project.find_by(slug: params[:id])
+    gon.user = @user
+    gon.project = @project
   end
 
   def create

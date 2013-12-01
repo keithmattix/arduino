@@ -1,0 +1,20 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+window.Project ||= {}
+Project.show = () ->
+	$ ->
+	  new Highcharts.Chart(
+	  	chart:
+	    	renderTo: "projectchart"
+	    title:
+	    	text: gon.project.name
+	    xAxis:
+	    	type: 'datetime'
+	    	title: 
+	    		text:gon.project.x_name
+	    yAxis: 
+	    	title: 
+	    		text: gon.project.y_name 
+	    series: [data: gon.project.data]
+	  )
