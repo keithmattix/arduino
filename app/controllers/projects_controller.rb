@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find_by(slug: params[:id])
-    if @project.update(params[:project])
+    if @project.update(project_params)
       respond_to do |format|
         format.json { render :json => @project.to_json }
       end
