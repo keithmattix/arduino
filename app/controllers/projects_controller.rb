@@ -24,6 +24,10 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find_by(slug: params[:id])
     params[:project][:data_values] = JSON.parse(params[:project][:data_values])
+    params[:project][:data_values].each_with_index do |value, index| 
+      params[:project][:data_values][index] = @project.data_values.build(params[:project][:data_values][index])
+      params[:project][:data_values][index].save
+    end
     if @project.update(project_params)
       respond_to do |format|
         format.json { render :json => @project.to_json(include: :data_values) }
