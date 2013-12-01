@@ -23,9 +23,6 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find_by(slug: params[:id])
-    params[:project][:data_values].each_with_index do |data_value, index|
-      params[:project][:data_values][index] = JSON.parse(data_value)
-    end
     puts "Params: " + params.to_s
     puts "Project Params" + project_params.to_s
     puts "Data Values: " + project_params.fetch(:data_values).to_s
@@ -43,6 +40,6 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :x_name, :y_name, :description, :user_id, :data_values => [:data_value])
+    params.require(:project).permit(:name, :x_name, :y_name, :description, :user_id, :data_values => [])
   end
 end
