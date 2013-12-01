@@ -33,12 +33,13 @@ class ProjectsController < ApplicationController
     else
       respond_to do |format|
         format.json {render :json => { :errors => @model.errors.full_messages }, :status => 422}
-      end
+     end
     end
   end
+ 
 
   private
   def project_params
-    params.require(:project).permit(:name, :x_name, :y_name, :description, :user_id, :data_values => [])
+    params.require(:project).permit(:name, :x_name, :y_name, :description, :user_id, :data_values => [:data_value])
   end
 end
