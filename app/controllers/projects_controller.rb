@@ -23,6 +23,9 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find_by(slug: params[:id])
+    puts "Params: " + params.to_s
+    puts "Project Params" + project_params.to_s
+    puts "Data Values: " + project_params.fetch(:data_values).to_s
     if @project.update(project_params)
       respond_to do |format|
         format.json { render :json => @project.to_json(include: :data_values) }
