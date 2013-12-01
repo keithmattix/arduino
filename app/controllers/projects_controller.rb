@@ -25,7 +25,8 @@ class ProjectsController < ApplicationController
     params[:project][:data] = eval(params[:project][:data])
     puts "Params: " + params.to_s
     puts "Project Params" + project_params.to_s
-    if @project.update()
+    puts "Data: " + project_params.fetch(:data).to_s
+    if @project.update(project_params)
       respond_to do |format|
         format.json { render :json => @project.to_json }
       end
