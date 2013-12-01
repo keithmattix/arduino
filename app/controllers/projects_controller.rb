@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
     @project = Project.find_by(slug: params[:id])
     params[:project][:data] = eval(params[:project][:data])
     if @project.update(project_params)
+      debugger
       respond_to do |format|
         format.json { render :json => @project.to_json }
       end
