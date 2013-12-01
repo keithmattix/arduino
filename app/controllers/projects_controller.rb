@@ -25,9 +25,7 @@ class ProjectsController < ApplicationController
     params[:project][:data] = eval(params[:project][:data])
     puts "Params: " + params.to_s
     puts "Project Params" + project_params.to_s
-    puts "Project: " + project_params.fetch(:project).to_s
-    puts "Data: " + project_params.fetch(:project).fetch(:data).to_s
-    if @project.update(project_params)
+    if @project.update()
       respond_to do |format|
         format.json { render :json => @project.to_json }
       end
@@ -40,6 +38,6 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :x_name, :y_name, :description, :user_id, :data)
+    params.require(:project).permit(:name, :x_name, :y_name, :description, :user_id, :data => [])
   end
 end
