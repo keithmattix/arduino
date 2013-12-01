@@ -23,7 +23,8 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find_by(slug: params[:id])
     params[:project][:data] = eval(params[:project][:data])
-    puts "Params: " + project_params.to_s
+    puts "Params: " + params.to_s
+    puts "Project Params" + project_params.to_s
     puts "Project: " + project_params.fetch(:project).to_s
     puts "Data: " + project_params.fetch(:project).fetch(:data).to_s
     if @project.update(project_params)
