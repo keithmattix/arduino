@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  project_changed = false;
+
   def index
     @user = User.find_by(slug: params[:user_id])
     @user_projects = @user.projects
@@ -9,7 +11,6 @@ class ProjectsController < ApplicationController
     @user = User.find_by(slug: params[:user_id])
     @project = Project.find_by(slug: params[:id])
     @data_values = @project.data_values
-    gon.user = @user
     gon.project = @project
     gon.data_values = @data_values
   end
@@ -31,6 +32,7 @@ class ProjectsController < ApplicationController
       params[:project][:data_values][index].save
     end
     if @project.update(project_params)
+      project_changed = true
       respond_to do |format|
         format.json { render :json => @project.to_json(include: :data_values) }
       end
@@ -38,6 +40,15 @@ class ProjectsController < ApplicationController
       respond_to do |format|
         format.json {render :json => { :errors => @model.errors.full_messages }, :status => 422}
      end
+    end
+  end
+
+  def check_project_change
+    if project_changed
+      render :js => "chartCreate()"
+      project_changed = false
+    else
+
     end
   end
  

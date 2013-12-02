@@ -10,6 +10,10 @@ class Project
   belongs_to :user
   has_many :data_values, dependent: :destroy
 
+  after_update do |document|
+    
+  end
+
   def to_param
     slug
   end

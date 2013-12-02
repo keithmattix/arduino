@@ -4,25 +4,29 @@
 window.Project ||= {}
 Project.show = () ->
 	$ ->
-	  new Highcharts.Chart(
-	  	chart:
-	    	renderTo: "projectchart"
-	    title:
-	    	text: gon.project.name
-	    xAxis:
-	    	type: 'datetime'
-	    	title: 
-	    		text:gon.project.x_name
-	    	labels:
-	        formatter: ->
-	        	Highcharts.dateFormat("%b %e %H:%M", this.value);
-	    yAxis: 
-	    	title: 
-	    		text: gon.project.y_name 
-	    series: [
-	    					data: if gon.data_values? then $.map(gon.data_values, (item, index) -> item.value) else []
-	    				]
-	    plotOptions:
-	    	series:
-	    		pointStart: new Date(gon.data_values[0].created_at).getDate()
-	  )
+		chartCreate = () -> 
+		  new Highcharts.Chart(
+		  	chart:
+		    	renderTo: "projectchart"
+		    title:
+		    	text: gon.project.name
+		    xAxis:
+		    	type: 'datetime'
+		    	title: 
+		    		text:gon.project.x_name
+		    	labels:
+		        formatter: ->
+		        	Highcharts.dateFormat("%b %e %H:%M", this.value);
+		    yAxis: 
+		    	title: 
+		    		text: gon.project.y_name 
+		    series: [
+		    					data: if gon.data_values? then $.map(gon.data_values, (item, index) -> item.value) else []
+		    				]
+		    plotOptions:
+		    	series:
+		    		pointStart: new Date(gon.data_values[0].created_at).getDate()
+		  )
+		gon.watch("data_values", {interval: 1000, method: "check_project_change"}, null)
+		gon.watch("project", {interval: 1000, method: "check_project_change"}, null)
+		chartCreate()
