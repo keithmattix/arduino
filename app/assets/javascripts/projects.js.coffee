@@ -25,7 +25,7 @@ Project.show = () ->
 		    				]
 		    plotOptions:
 		    	series:
-		    		pointStart: new Date(gon.data_values[0].created_at).getDate()
+		    		pointStart: new Date(if gon.data_values.length > 0 then gon.data_values[0].created_at else Date.now()).getDate()
 		  )
 		gon.watch("data_values", {interval: 1000, method: "check_project_change"}, null)
 		gon.watch("project", {interval: 1000, method: "check_project_change"}, null)
