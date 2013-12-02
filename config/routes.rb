@@ -4,8 +4,8 @@ Arduino::Application.routes.draw do
   devise_scope :user do
   	resources :users, :only => [:show], :path => '' do
 	  	resources :projects do
-	  		collection do
-	  			post 'check_project_change'
+	  		member do
+	  			get 'check_project_change'
 	  		end
 	  	end
   	end

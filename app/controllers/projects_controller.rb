@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  project_changed = false;
+  @project_changed = false;
 
   def index
     @user = User.find_by(slug: params[:user_id])
@@ -11,9 +11,9 @@ class ProjectsController < ApplicationController
     @user = User.find_by(slug: params[:user_id])
     @project = Project.find_by(slug: params[:id])
     @data_values = @project.data_values
-    gon.watch.project = @project
-    gon.watch.data_values = @data_values
-    gon.check_url = check_project_change_user_projects_path(current_user)
+    gon.watch.project = Project.find_by(slug: params[:id])
+    gon.data_values = @data_values
+    gon.check_url = check_project_change_user_project_path(current_user, @project)
   end
 
   def create
@@ -33,8 +33,7 @@ class ProjectsController < ApplicationController
       params[:project][:data_values][index].save
     end
     if @project.update(project_params)
-      project_changed = true
-      check_project_change
+      @project_changed = true
       respond_to do |format|
         format.json { render :json => @project.to_json(include: :data_values) }
       end
@@ -46,12 +45,13 @@ class ProjectsController < ApplicationController
   end
 
   def check_project_change
-    if project_changed
+    if @project_changed
       puts 'project has changed'
       render :js => "$('#projectchart').empty(); chartCreate();"
-      project_changed = false
+      @project_changed = false
     else
       puts 'project has not changed'
+      render :js => ""
     end
   end
  
