@@ -11,8 +11,8 @@ class ProjectsController < ApplicationController
     @user = User.find_by(slug: params[:user_id])
     @project = Project.find_by(slug: params[:id])
     @data_values = @project.data_values
-    gon.project = @project
-    gon.data_values = @data_values
+    gon.watch.project = @project
+    gon.watch.data_values = @data_values
   end
 
   def create
