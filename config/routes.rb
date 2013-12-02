@@ -3,7 +3,11 @@ Arduino::Application.routes.draw do
   root :to => "home#index"
   devise_scope :user do
   	resources :users, :only => [:show], :path => '' do
-	  	resources :projects
+	  	resources :projects do
+	  		collection do
+	  			post 'check_project_change'
+	  		end
+	  	end
   	end
   end
 end

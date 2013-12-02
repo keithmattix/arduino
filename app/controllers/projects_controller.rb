@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
     @data_values = @project.data_values
     gon.watch.project = @project
     gon.watch.data_values = @data_values
+    gon.check_url = check_project_change_user_projects_path(current_user)
   end
 
   def create
@@ -33,6 +34,7 @@ class ProjectsController < ApplicationController
     end
     if @project.update(project_params)
       project_changed = true
+      check_project_change
       respond_to do |format|
         format.json { render :json => @project.to_json(include: :data_values) }
       end
