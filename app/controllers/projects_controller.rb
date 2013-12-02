@@ -47,6 +47,9 @@ class ProjectsController < ApplicationController
   def check_project_change
     if @@project_changed
       puts 'project has changed'
+      gon.watch.project = Project.find_by(slug: params[:id])
+      gon.data_values = Project.find_by(slug: params[:id]).data_values
+      gon.check_url = check_project_change_user_project_path(current_user, Project.find_by(slug: params[:id]))
       render :js => "$('#projectchart').empty(); chartCreate();"
       @@project_changed = false
     else
