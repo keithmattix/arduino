@@ -45,7 +45,7 @@ class ProjectsController < ApplicationController
 
   def check_project_change
     if project_changed
-      render :js => "chartCreate()"
+      render :js => "$('#projectchart').empty(); chartCreate();"
       project_changed = false
     else
 
