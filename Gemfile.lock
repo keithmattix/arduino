@@ -53,7 +53,7 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bson (2.0.0.rc3)
+    bson (2.0.0)
     builder (3.1.4)
     capybara (2.2.0)
       mime-types (>= 1.16)
@@ -80,10 +80,10 @@ GEM
     daemons (1.1.9)
     database_cleaner (1.0.1)
     debug_inspector (0.0.2)
-    debugger (1.6.2)
+    debugger (1.6.3)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.2.3)
+      debugger-ruby_core_source (~> 1.2.4)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.4)
     devise (3.2.2)
@@ -242,7 +242,7 @@ GEM
     turbolinks (1.3.1)
       coffee-rails
     tzinfo (0.3.38)
-    uglifier (2.3.1)
+    uglifier (2.3.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     warden (1.2.3)
@@ -269,7 +269,7 @@ DEPENDENCIES
   figaro
   gon
   haml-rails
-  highcharts-rails (~> 3.0.0)
+  highcharts-rails
   html2haml
   i18n
   jbuilder (~> 1.2)

@@ -16,7 +16,7 @@ gem 'mongoid', '~> 4', :github=>"mongoid/mongoid"
 gem 'rolify'
 gem 'pluggable_js'
 gem 'gon'
-gem "highcharts-rails", "~> 3.0.0"
+gem "highcharts-rails"
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'

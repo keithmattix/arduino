@@ -13,8 +13,16 @@ Project.show = () ->
 	    	type: 'datetime'
 	    	title: 
 	    		text:gon.project.x_name
+	    	labels:
+	        formatter: ->
+	        	Highcharts.dateFormat("%b %e %H:%M", this.value);
 	    yAxis: 
 	    	title: 
 	    		text: gon.project.y_name 
-	    series: if gon.project.data_values? then [data: $.map(gon.project.data_values, (item, index) -> item.value) ] else []
+	    series: [
+	    					data: if gon.data_values? then $.map(gon.data_values, (item, index) -> item.value) else []
+	    				]
+	    plotOptions:
+	    	series:
+	    		pointStart: new Date(gon.data_values[0].created_at).getDate()
 	  )

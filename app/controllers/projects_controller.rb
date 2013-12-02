@@ -8,8 +8,10 @@ class ProjectsController < ApplicationController
   def show
     @user = User.find_by(slug: params[:user_id])
     @project = Project.find_by(slug: params[:id])
+    @data_values = @project.data_values
     gon.user = @user
     gon.project = @project
+    gon.data_values = @data_values
   end
 
   def create
