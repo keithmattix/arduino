@@ -10,5 +10,8 @@
 	-elsif @user_projects.empty? and @user != current_user
 		%span#empty-message
 			#{@user.name} has no projects right now. Check back later!
+	-else
+		%button.new-project{"data-reveal-id" => "new-project-modal"}
+			New Project
 
 =render "shared/new_project_modal"
