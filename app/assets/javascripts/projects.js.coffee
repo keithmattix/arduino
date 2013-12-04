@@ -5,6 +5,9 @@ window.Project ||= {}
 
 Project.show = () ->
 	$ ->
+		Highcharts.setOptions 
+			global:
+	  		useUTC: false
 		chartCreate = -> 
 		  return new Highcharts.Chart(
 		  	chart:
@@ -17,15 +20,18 @@ Project.show = () ->
 		    		text:gon.project.x_name
 		    	labels:
 		        formatter: ->
-		        	Highcharts.dateFormat("%b %e %H:%M");
+		        	Highcharts.dateFormat("%b %e (%l %p)", this.value);
 		    yAxis: 
 		    	title: 
 		    		text: gon.project.y_name 
 		    series: [
 		    					data: if gon.data_values? then $.map(gon.data_values, (item, index) -> item.value) else []
+		    					name: "Pentometer Readings"
 		    				]
 		    plotOptions:
 		    	series:
-		    		pointStart: new Date(if gon.data_values.length > 0 then gon.data_values[0].created_at else Date.now())
+		    		pointStart: new Date(if gon.data_values.length > 0 then gon.data_values[0].created_at else Date.now()).getTime()
+		    tooltip:
+		    	xDateFormat: "%b %e %l:%M %p"
 		  )
 		gon.watch("project", {interval: 1000 * 20, method: "POST", url: gon.check_url}, null)

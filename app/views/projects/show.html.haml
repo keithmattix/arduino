@@ -1,6 +1,18 @@
 #projectchart
 
 :javascript
+  Highcharts.setOptions({
+    global: {
+      useUTC: false
+    }
+  });
+  function ordinal(number) {
+    var d = number % 10;
+    return (~~ (number % 100 / 10) === 1) ? 'th' :
+           (d === 1) ? 'st' :
+           (d === 2) ? 'nd' :
+           (d === 3) ? 'rd' : 'th';
+  }
   var chartCreate = function() {
     return new Highcharts.Chart({
       chart: {
@@ -16,7 +28,7 @@
         },
         labels: {
           formatter: function() {
-            return Highcharts.dateFormat("%b %e %H:%M");
+            return Highcharts.dateFormat("%b %e (%l %p)", this.value);
           }
         }
       },
@@ -29,13 +41,17 @@
         {
           data: gon.data_values != null ? $.map(gon.data_values, function(item, index) {
             return item.value;
-          }) : []
+          }) : [],
+          name: "Pentometer Reading"
         }
       ],
       plotOptions: {
         series: {
-          pointStart: new Date(gon.data_values.length > 0 ? gon.data_values[0].created_at : Date.now()).getDate()
+          pointStart: new Date(gon.data_values.length > 0 ? gon.data_values[0].created_at : Date.now()).getTime()
         }
+      },
+      tooltip: {
+        xDateFormat: "%b %e %l:%M %p"
       }
     });
   };
