@@ -6,7 +6,7 @@ window.Project ||= {}
 Project.show = () ->
 	$ ->
 		chartCreate = () -> 
-		  new Highcharts.Chart(
+		  return new Highcharts.Chart(
 		  	chart:
 		    	renderTo: "projectchart"
 		    title:
