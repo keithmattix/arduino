@@ -25,7 +25,7 @@ Project.show = () ->
 		    	title: 
 		    		text: gon.project.y_name 
 		    series: [
-		    					data: if gon.data_values? then $.map(gon.data_values, (item, index) -> item.value) else []
+		    					data: if gon.data_values? then $.map(gon.data_values, (item, index) -> [new Date(item.created_at),item.value]) else []
 		    					name: "Pentometer Readings"
 		    				]
 		    plotOptions:

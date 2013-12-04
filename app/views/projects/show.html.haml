@@ -6,13 +6,6 @@
       useUTC: false
     }
   });
-  function ordinal(number) {
-    var d = number % 10;
-    return (~~ (number % 100 / 10) === 1) ? 'th' :
-           (d === 1) ? 'st' :
-           (d === 2) ? 'nd' :
-           (d === 3) ? 'rd' : 'th';
-  }
   var chartCreate = function() {
     return new Highcharts.Chart({
       chart: {
@@ -40,7 +33,7 @@
       series: [
         {
           data: gon.data_values != null ? $.map(gon.data_values, function(item, index) {
-            return item.value;
+            return [item.value, new Date(item.created_at)];
           }) : [],
           name: "Pentometer Reading"
         }
