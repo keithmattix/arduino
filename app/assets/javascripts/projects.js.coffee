@@ -17,7 +17,7 @@ Project.show = () ->
 		    		text:gon.project.x_name
 		    	labels:
 		        formatter: ->
-		        	Highcharts.dateFormat("%b %e %H:%M", this.value);
+		        	Highcharts.dateFormat("%b %e %H:%M");
 		    yAxis: 
 		    	title: 
 		    		text: gon.project.y_name 
@@ -26,6 +26,6 @@ Project.show = () ->
 		    				]
 		    plotOptions:
 		    	series:
-		    		pointStart: new Date(if gon.data_values.length > 0 then gon.data_values[0].created_at else Date.now()).getDate()
+		    		pointStart: new Date(if gon.data_values.length > 0 then gon.data_values[0].created_at else Date.now())
 		  )
 		gon.watch("project", {interval: 1000 * 20, method: "POST", url: gon.check_url}, null)
