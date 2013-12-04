@@ -28,5 +28,5 @@ Project.show = () ->
 		    	series:
 		    		pointStart: new Date(if gon.data_values.length > 0 then gon.data_values[0].created_at else Date.now()).getDate()
 		  )
-		gon.watch("project", {interval: 1000 * 60, method: "POST", url: gon.check_url}, null)
+		gon.watch("project", {interval: 1000 * 20, method: "POST", url: gon.check_url}, null)
 		chartCreate()
