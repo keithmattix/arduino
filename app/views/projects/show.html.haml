@@ -1,1 +1,42 @@
 #projectchart
+
+:javascript
+  var chartCreate = function() {
+    return new Highcharts.Chart({
+      chart: {
+        renderTo: "projectchart"
+      },
+      title: {
+        text: gon.project.name
+      },
+      xAxis: {
+        type: 'datetime',
+        title: {
+          text: gon.project.x_name
+        },
+        labels: {
+          formatter: function() {
+            return Highcharts.dateFormat("%b %e %H:%M", this.value);
+          }
+        }
+      },
+      yAxis: {
+        title: {
+          text: gon.project.y_name
+        }
+      },
+      series: [
+        {
+          data: gon.data_values != null ? $.map(gon.data_values, function(item, index) {
+            return item.value;
+          }) : []
+        }
+      ],
+      plotOptions: {
+        series: {
+          pointStart: new Date(gon.data_values.length > 0 ? gon.data_values[0].created_at : Date.now()).getDate()
+        }
+      }
+    });
+  };
+  var chart = chartCreate();
